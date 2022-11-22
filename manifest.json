@@ -1,0 +1,64 @@
+{
+	"sap.app": {
+		"id": "sap.ui.table.sample.RowAction",
+		"applicationVersion": {
+			"version": "1.0.0"
+		}
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "productListRittal.view.ProductList",
+			"type": "XML",
+			"async": true
+		},
+		"dependencies": {
+			"libs": {
+				"sap.m": {},
+				"sap.ui.table": {}
+
+			}
+		},
+		"config": {
+			"sample": {
+				"stretch": true,
+				"files": [
+					"View.view.xml",
+					"Controller.controller.js",
+					"manifest.json"
+				]
+			}
+		}
+	},
+	"routing": {
+		"config": {
+			"routerClass": "sap.m.routing.Router",
+			"type": "View",
+			"viewType": "XML",
+			"path": "productListRittal.view",
+			"controlId": "app",
+			"controlAggregations": "pages"
+		},
+		"routes": [
+			{
+				"pattern": "",
+				"name": "productList",
+				"target": "productList"
+			},
+			{
+				"pattern": "productDetail/{selectedItem}",
+				"name": "productDetail",
+				"target": "productDetail"
+			}
+		],
+		"targets": {
+			"productList": {
+				"id": "productList",
+				"name": "productList"
+			},
+			"productDetail": {
+				"id": "productDetail",
+				"name": "productDetail"
+			}
+		}
+	}
+}

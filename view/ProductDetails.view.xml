@@ -1,0 +1,45 @@
+<mvc:View
+        controllerName="productListRittal.controller.ProductDetails"
+        xmlns="sap.ui.table"
+        xmlns:mvc="sap.ui.core.mvc"
+        xmlns:l="sap.ui.layout"
+        xmlns:m="sap.m"
+        xmlns:form="sap.ui.layout.form"
+        height="100%">
+    <m:Page
+            showHeader="true"
+            enableScrolling="false"
+            class="sapUiContentPadding"
+            title="Produktdetails">
+
+
+        <l:VerticalLayout class="sapUiContentPadding">
+            <m:Panel
+                    backgroundDesign="Transparent"
+                    headerText="Produktinfo">
+                <m:content>
+                    <form:SimpleForm
+                            minWidth="1024"
+                            maxContainerCols="2"
+                            editable="false"
+                            layout="ResponsiveGridLayout"
+                            labelSpanL="3"
+                            labelSpanM="3"
+                            emptySpanL="4"
+                            emptySpanM="4"
+                            columnsL="1"
+                            columnsM="1">
+                        <form:content>
+                            <m:Label text="Produkt-Code"/>
+                            <m:Text text="{selectedItem/code}"/>
+                            <m:Label text="Beschreibung"/>
+                            <m:Text text="{selectedItem/description/de}"/>
+                            <m:Label text="Status"/>
+                            <m:Text text="{selectedItem/portfolioStatus}"/>
+                        </form:content>
+                    </form:SimpleForm>
+                </m:content>
+            </m:Panel>
+        </l:VerticalLayout>
+    </m:Page>
+</mvc:View>

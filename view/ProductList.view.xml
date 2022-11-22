@@ -1,0 +1,128 @@
+<mvc:View
+	controllerName="productListRittal.controller.ProductList"
+	xmlns="sap.ui.table"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:l="sap.ui.layout"
+	xmlns:m="sap.m"
+	xmlns:form="sap.ui.layout.form"
+	height="100%">
+	<m:Page
+		showHeader="true"
+		enableScrolling="false"
+		class="sapUiContentPadding"
+		title="Übersicht Produkte">
+		<m:content>
+			<Table
+				id="table"
+				rows="{/items}"
+				selectionMode="MultiToggle"
+				visibleRowCount="12"
+				ariaLabelledBy="title">
+				<extension>
+					<m:OverflowToolbar style="Clear">
+						<m:Title id="title" text="Produkte"/>
+						<m:ToolbarSpacer/>
+						<m:SearchField
+								placeholder="Filter"
+								value="{ui>/globalFilter}"
+								search="filterGlobally"
+								width="15rem"/>
+					</m:OverflowToolbar>
+				</extension>
+				<columns>
+					<Column>
+						<m:Label text="Produkt" />
+						<template>
+							<m:Text text="{code}" wrapping="false"/>
+						</template>
+					</Column>
+					<Column>
+						<m:Label text="Beschreibung" />
+						<template>
+							<m:Text text="{labels/de}" wrapping="false"/>
+						</template>
+					</Column>
+				</columns>
+				<rowActionTemplate>
+					<RowAction>
+							<RowActionItem type="Navigation" icon="sap-icon://feeder-arrow" press="onNavigateToProductDetails"/>
+					</RowAction>
+				</rowActionTemplate>
+			</Table>
+		</m:content>
+	</m:Page>
+</mvc:View>
+
+
+<!--
+<mvc:View
+        controllerName="productListRittal.controller.ProductList"
+        xmlns:mvc="sap.ui.core.mvc"
+        xmlns:semantic="sap.f.semantic"
+        xmlns="sap.m">
+    <semantic:SemanticPage
+            id="page"
+            headerPinnable="false"
+            toggleHeaderOnTitleClick="false"
+            showFooter="true">
+
+        <semantic:titleHeading>
+            <Title text="{i18n>worklistTitle}"/>
+        </semantic:titleHeading>
+
+        <semantic:headerContent>
+            <IconTabBar
+                    id="iconTabBar"
+                    select=".onQuickFilter"
+                    expandable="false">
+                <content>
+
+                    <Table id="idProductsTable"
+                           inset="false"
+                           items="{
+				path: '/items',
+				sorter: {
+					path: 'code'
+				}
+			}">
+                        <headerToolbar>
+                            <OverflowToolbar>
+                                <content>
+                                    <Title text="Übersicht Produkte" level="H2"/>
+                                    <ToolbarSpacer/>
+                                </content>
+                            </OverflowToolbar>
+                        </headerToolbar>
+                        <infoToolbar>
+                            <OverflowToolbar>
+                                <Label text="Produkte"/>
+                            </OverflowToolbar>
+                        </infoToolbar>
+                        <columns>
+                            <Column
+                                    width="12em">
+                                <Text text="Code"/>
+                            </Column>
+                            <Column
+                                    minScreenWidth="Tablet"
+                                    demandPopin="true">
+                                <Text text="Beschreibung"/>
+                            </Column>
+                        </columns>
+                        <items>
+                            <ColumnListItem vAlign="Middle">
+                                <cells>
+                                    <ObjectIdentifier
+                                            title="{Name}"
+                                            text="{code}"/>
+                                    <Text
+                                            text="{labels/de}"/>
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+                </content>
+            </IconTabBar>
+        </semantic:headerContent>
+    </semantic:SemanticPage>
+</mvc:View>-->
